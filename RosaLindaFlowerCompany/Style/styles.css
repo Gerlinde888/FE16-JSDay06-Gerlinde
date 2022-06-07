@@ -76,6 +76,20 @@ body {
     margin-right: 20px;
 }
 
+.cart-discount, .cart-sum {
+    text-align: end;
+    margin-top: 10px;
+    margin-right: 10px;
+    font-size: large;
+}
+.cart-discount-title, .cart-sum-title {
+    font-weight: bold;
+    font-size: 1.5em;
+    color: #2f5425;
+    margin-right: 20px;
+    font-size: large;
+}
+
 .plus, .minus{
     color: #2f5425;
     font-size:2.5em;

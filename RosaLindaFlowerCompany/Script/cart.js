@@ -95,10 +95,36 @@ function createRows() {
 
 function Total() {
     let total = 0;
+    let discount = 0;
     for (let val of cart) {
         total = total + (val.price * val.qtty);
     }
-    document.getElementById("price").innerHTML = total.toFixed(2) + " €";
+
+    if (total > 100) {
+        let sum = total;
+        Discount(sum);
+    } else {
+    document.getElementById("price").innerHTML = total.toFixed(2) + " €";}
+}
+function Discount(sum) {
+    let discount = 0;
+    let new_sum = sum;
+    let discount_string ="";
+    let new_sum_string ="";
+
+    // document.getElementById("sum").innerHTML = new_sum.toFixed(2) + " €";
+    new_sum_string = `<strong class="cart-sum-title">Sum </strong>
+    <span id="sum" class="cart-sum h4">${new_sum.toFixed(2)} €</span>`;
+    document.getElementById("sum").innerHTML = new_sum_string;
+
+    discount = sum * 10 / 100;
+    sum = sum - discount;
+    console.log(discount);
+
+    discount_string = `<strong class="cart-discount-title">Discount</strong>
+    <span id="discount_amount" class="cart-discount h4">${discount.toFixed(2)} €</span>`;
+    document.getElementById("discount_amount").innerHTML = discount_string;
+    document.getElementById("price").innerHTML = sum.toFixed(2) + " €";
 }
 
 function plusQtty(i) {
